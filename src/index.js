@@ -6,15 +6,16 @@ import InputSearch from '../src/components/input-search';
 import TodoList from '../src/components/todo-list'
 
 const App = () =>{
-  let isLoggedIn = true;
-  const login = <span>Login please</span>;
-  const welcomeBox = <span>Welcome to our page</span>
+const todoData = [
+  {label: 'Drink Coffe', important: false},
+  {label: 'Make awesome react app', important: true},
+  {label: 'Have a lunch', important: false}
+];
   return (
     <div>
-      {isLoggedIn ? welcomeBox : login}
       <AppHeader />
       <InputSearch />
-      <TodoList />
+      <TodoList todos={todoData}/>
   </div>
   );
 };
