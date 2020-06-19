@@ -7,16 +7,19 @@ import TodoList from './components/todo-list'
 import ItemStatusFilter from './components/item-status-filter'
 
 const App = () =>{
-const todoData = [
-  {label: 'Drink Coffe', important: false, id: 1},
-  {label: 'Make awesome react app', important: true, id: 2},
-  {label: 'Have a lunch', important: false, id: 3}
-];
+  const todoData = [
+    {label: 'Drink Coffe', important: false, id: 1},
+    {label: 'Make awesome react app', important: true, id: 2},
+    {label: 'Have a lunch', important: false, id: 3}
+  ];
   return (
-    <div>
-      <AppHeader />
-      <InputSearch />
-      <ItemStatusFilter />
+    <div className="todo-app">
+      <AppHeader toDo={3} done={1} />
+      <div className="top-panel d-flex">
+        <InputSearch />
+        <ItemStatusFilter />
+      </div>
+      
       <TodoList todos={todoData}/>
   </div>
   );
