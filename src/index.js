@@ -6,6 +6,8 @@ import InputSearch from './components/input-search';
 import TodoList from './components/todo-list'
 import ItemStatusFilter from './components/item-status-filter'
 
+import './index.css';
+
 const App = () =>{
   const todoData = [
     {label: 'Drink Coffe', important: false, id: 1},
