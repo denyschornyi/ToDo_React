@@ -9,11 +9,16 @@ const InputSearch = () => {
   return     <input type="text" placeholder="Search"/> ;
 }
 
+
+
 const TodoList = () => {
+
+  const item  = ['Learn React', 'Build awesome app'];
+
   return (
     <ul>
-      <li>Learn React</li>
-      <li>Build Awesome App</li>
+      <li>{item[0]}</li>
+      <li>{item[1]}</li>
     </ul>
   );
 }
@@ -27,4 +32,4 @@ const App = () =>{
   );
 };
 
-ReactDOM.render( <App />, document.querySelector('#root'));
+ReactDOM.render( <App /> , document.querySelector('#root'));
