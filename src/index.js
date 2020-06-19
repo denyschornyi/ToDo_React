@@ -1,20 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import AppHeader from '../src/components/app-header';
-import InputSearch from '../src/components/input-search';
-import TodoList from '../src/components/todo-list'
+import AppHeader from './components/app-header';
+import InputSearch from './components/input-search';
+import TodoList from './components/todo-list'
+import ItemStatusFilter from './components/item-status-filter'
 
 const App = () =>{
 const todoData = [
-  {label: 'Drink Coffe', important: false},
-  {label: 'Make awesome react app', important: true},
-  {label: 'Have a lunch', important: false}
+  {label: 'Drink Coffe', important: false, id: 1},
+  {label: 'Make awesome react app', important: true, id: 2},
+  {label: 'Have a lunch', important: false, id: 3}
 ];
   return (
     <div>
       <AppHeader />
       <InputSearch />
+      <ItemStatusFilter />
       <TodoList todos={todoData}/>
   </div>
   );
