@@ -51,7 +51,15 @@ export default class App extends Component{
     });
   }
   onToggleImportant = (id) => {
-    console.log('Toggle important',id);
+    this.setState( ({todoData}) => {
+      const idx = todoData.findIndex( (el) =>  el.id === id);
+      const oldItem = todoData[idx];
+      const newItem = {...oldItem, important: !oldItem.important};
+      const newArray = [...todoData.slice(0, idx), newItem, ...todoData.slice(idx + 1)];
+      return{
+        todoData:  newArray
+      }
+    });
   };
   onToggleDone = (id) => {
     this.setState( ({todoData}) => {
@@ -66,9 +74,9 @@ export default class App extends Component{
   };
 
   render(){
-
-    const doneCount = this.state.todoData.filter( item => item.done).length;
-    const todoCount = this.state.todoData.length - doneCount;
+    const {todoData} = this.state;
+    const doneCount = todoData.filter( item => item.done).length;
+    const todoCount = todoData.length - doneCount;
 
     return (
       <div className="todo-app">
@@ -81,7 +89,7 @@ export default class App extends Component{
         </div>
         
         <TodoList 
-          todos={this.state.todoData}
+          todos={todoData}
           onDeleted={ this.deleteItem}
           onToggleImportant={ this.onToggleImportant}
           onToggleDone={ this.onToggleDone}/>
