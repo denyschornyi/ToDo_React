@@ -1,8 +1,8 @@
 import React from 'react';
 
-const TodoListItem = (props) => {
+const TodoListItem = ({label}) => {
     return(
-        <span>Learn React</span>
+        <span>{label}</span>
     );
 }
 

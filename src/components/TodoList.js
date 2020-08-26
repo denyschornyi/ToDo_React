@@ -5,10 +5,9 @@ import TodoListItem from './TodoListItem'
 const TodoList = () => {
     return (
       <ul>
-        <li><TodoListItem/></li>
-        {/* <li>Learn React</li>
-        <li>Be a PRO in React</li>
-        <li>Start working at Netguru as Frontend developer in September</li> */}
+        <li><TodoListItem label='Learn React'/></li>
+        <li><TodoListItem label='Be a PRO in React'/></li>
+        <li><TodoListItem label='Start working at Netguru as Frontend developer in Septembert'/></li>
       </ul>
     );
 }
