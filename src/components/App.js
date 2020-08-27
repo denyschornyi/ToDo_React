@@ -1,10 +1,10 @@
 import React from 'react';
 
-import TodoHeader from './TodoHeader';
-import SearchPanel from './SearchPanel';
-import TodoList from './TodoList';
+import ItemStatusFilter from './ItemStatusFilter/';
+import TodoHeader from './TodoHeader/';
+import SearchPanel from './SearchPanel/';
+import TodoList from './TodoList/';
 
-import ItemStatusFilter from './ItemStatusFilter.js';
 
 const App = () => {
 
