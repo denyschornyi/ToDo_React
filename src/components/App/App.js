@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import ItemStatusFilter from '../ItemStatusFilter';
 import TodoHeader from '../TodoHeader';
@@ -7,7 +7,8 @@ import TodoList from '../TodoList';
 
 import './App.css';
 
-const App = () => {
+class App extends Component{
+  render(){
 
   const todoData = [
     { label: 'Drink Coffee', important: false, id: 1 },
@@ -29,6 +30,7 @@ const App = () => {
                 onDeleted={(id) => console.log(`del ${id}`)} />
     </div>
   );
-};
+  }
+}
 
 export default App;
