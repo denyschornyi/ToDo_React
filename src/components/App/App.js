@@ -56,7 +56,7 @@ export default class App extends Component{
     const {todoData} = this.state;
     return (
       <div className="todo-app">
-        <TodoHeader toDo={1} done={3} />
+        <TodoHeader todo={1} done={3} />
         <div className="top-panel d-flex">
           <SearchPanel />
           <ItemStatusFilter />
