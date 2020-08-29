@@ -20,7 +20,15 @@ export default class App extends Component{
   deleteItem = (id) =>{
     this.setState( ({todoData}) => {
       const idx = todoData.findIndex(el => el.id === id);
-      console.log(idx);
+      
+      const before = todoData.slice(0, idx);
+      const after = todoData.slice(idx + 1);
+
+      const newArr = [...before, ...after];
+
+      return {
+        todoData : newArr
+      }
     });
   }
 
