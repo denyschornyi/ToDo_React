@@ -7,30 +7,29 @@ import TodoList from '../TodoList';
 
 import './App.css';
 
-class App extends Component{
+export default class App extends Component{
+
+  state = {
+    todoData: [
+      { label: 'Drink Coffee', important: false, id: 1 },
+      { label: 'Make Awesome App', important: true, id: 2 },
+      { label: 'Have a lunch', important: false, id: 3 }
+    ]
+  }
+
   render(){
+    const {todoData} = this.state;
+    return (
+      <div className="todo-app">
+        <TodoHeader toDo={1} done={3} />
+        <div className="top-panel d-flex">
+          <SearchPanel />
+          <ItemStatusFilter />
+        </div>
 
-  const todoData = [
-    { label: 'Drink Coffee', important: false, id: 1 },
-    { label: 'Make Awesome App', important: true, id: 2 },
-    { label: 'Have a lunch', important: false, id: 3 }
-  ];
-
-
-
-  return (
-    <div className="todo-app">
-      <TodoHeader toDo={1} done={3} />
-      <div className="top-panel d-flex">
-        <SearchPanel />
-        <ItemStatusFilter />
+        <TodoList todos={todoData}
+                  onDeleted={(id) => console.log(`del ${id}`)} />
       </div>
-
-      <TodoList todos={todoData}
-                onDeleted={(id) => console.log(`del ${id}`)} />
-    </div>
-  );
+    );
   }
 }
-
-export default App;
