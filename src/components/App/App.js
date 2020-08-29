@@ -15,6 +15,8 @@ const App = () => {
     { label: 'Have a lunch', important: false, id: 3 }
   ];
 
+
+
   return (
     <div className="todo-app">
       <TodoHeader toDo={1} done={3} />
@@ -23,7 +25,8 @@ const App = () => {
         <ItemStatusFilter />
       </div>
 
-      <TodoList todos={todoData} />
+      <TodoList todos={todoData}
+                onDeleted={(id) => console.log(`del ${id}`)} />
     </div>
   );
 };
