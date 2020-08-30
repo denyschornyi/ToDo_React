@@ -23,6 +23,7 @@ export default class App extends Component{
     return {
       label,
       important: false,
+      done: false,
       id: this.maxId++
     }
   }
@@ -53,7 +54,12 @@ export default class App extends Component{
     });
   }
   onToggleImportant = (id) =>{
-    console.log('Important', id)
+    this.setState( ({todoData}) => {
+      const idx = todoData.findIndex( el => el.id === id)
+
+      let oldItem = todoData[idx];
+
+    });
   }
 
   onToggleDone = (id) =>{
