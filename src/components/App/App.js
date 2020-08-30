@@ -16,7 +16,8 @@ export default class App extends Component{
       this.createTodoItem('Be a Pro in React'),
       this.createTodoItem('Make Awesome App'),
       this.createTodoItem('Work at Netguru in September'),
-    ]
+    ],
+    term: ''
   }
 
   createTodoItem (label) {
@@ -77,11 +78,13 @@ export default class App extends Component{
     this.onToggle(id, 'done');
   }
 
-  onSearch = (event) => {
-    console.log(event.target.value)
+  search = (items, term) => {
+    return items.filter(el => el.label.indexOf(term) > -1)
   }
+
   render(){
-    const {todoData} = this.state;
+    const {todoData, term} = this.state;
+    const visibleData = this.search(todoData, term);
     
     const doneCount = todoData.filter(el => el.done).length;
     const todoCount = todoData.length - doneCount;
@@ -94,7 +97,7 @@ export default class App extends Component{
           <ItemStatusFilter />
         </div>
 
-        <TodoList todos={todoData}
+        <TodoList todos={visibleData}
                   onDeleted={ this.deleteItem} 
                   onToggleImportant={this.onToggleImportant}
                   onToggleDone={this.onToggleDone}/>
