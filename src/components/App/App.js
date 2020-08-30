@@ -53,12 +53,13 @@ export default class App extends Component{
       }
     });
   }
-  onToggleImportant = (id) =>{
+
+  onToggle = (id, property) => {
     this.setState( ({todoData}) => {
       const idx = todoData.findIndex( el => el.id === id)
 
       const oldItem = todoData[idx];
-      const newItem = {...oldItem, important: !oldItem.important };
+      const newItem = {...oldItem, [property]: !oldItem[property] };
       const newArr = [...todoData.slice(0, idx) , newItem, ...todoData.slice(idx + 1)]
       return {
         todoData: newArr
@@ -66,17 +67,12 @@ export default class App extends Component{
     });
   }
 
-  onToggleDone = (id) =>{
-    this.setState( ({todoData}) => {
-      const idx = todoData.findIndex( el => el.id === id)
+  onToggleImportant = (id) =>{
+    this.onToggle(id, 'important');
+  }
 
-      const oldItem = todoData[idx];
-      const newItem = {...oldItem, done: !oldItem.done };
-      const newArr = [...todoData.slice(0, idx) , newItem, ...todoData.slice(idx + 1)]
-      return {
-        todoData: newArr
-      }
-    });
+  onToggleDone = (id) => {
+    this.onToggle(id, 'done');
   }
 
   render(){
