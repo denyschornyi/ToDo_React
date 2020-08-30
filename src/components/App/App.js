@@ -77,6 +77,9 @@ export default class App extends Component{
     this.onToggle(id, 'done');
   }
 
+  onSearch = (event) => {
+    console.log(event.target.value)
+  }
   render(){
     const {todoData} = this.state;
     
@@ -87,7 +90,7 @@ export default class App extends Component{
       <div className="todo-app">
         <TodoHeader todo={todoCount} done={doneCount} />
         <div className="top-panel d-flex">
-          <SearchPanel />
+          <SearchPanel onSearch={this.onSearch}/>
           <ItemStatusFilter />
         </div>
 
