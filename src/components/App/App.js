@@ -82,7 +82,7 @@ export default class App extends Component{
     if(term.length === 0 ){
       return items;
     }
-    return items.filter(el => el.label.indexOf(term) > -1)
+    return items.filter(el => el.label.toLowerCase().indexOf(term) > -1)
   }
 
   onSearchChange = (term) => {

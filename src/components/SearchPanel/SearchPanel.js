@@ -9,7 +9,7 @@ export default  class SearchPanel extends Component {
   }
 
   onSearchChange = (e) => {
-    const term = e.target.value;
+    const term = e.target.value.toLowerCase();
     this.setState({term});
     this.props.onSearchChange(term);
   };
